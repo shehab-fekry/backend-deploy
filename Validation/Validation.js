@@ -26,7 +26,7 @@ exports.confirmPassword = body('confirmPass')
 .isLength({min: 5})
 .isAlphanumeric()
 .custom((value, req) => {
-    return value === req.req.body.confirmPassword;
+    return value === req.body.confirmPassword;
 })
 .withMessage('passwords must match')
 

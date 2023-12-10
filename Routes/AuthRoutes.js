@@ -50,7 +50,7 @@ app.post('/signin', (req, res, next) => {
 
 const validation = [valid.Name, valid.Email, valid.Password, valid.confirmPassword]
 
-app.post('/signup', validation ,(req, res, next) => {
+app.post('/signup' ,(req, res, next) => {
     let {name, email, password, confirmPass, imagePath} = req.body;
 
     // express-validator (2)
@@ -58,7 +58,7 @@ app.post('/signup', validation ,(req, res, next) => {
     let errorArray=[];
     errors.forEach(err => errorArray.push(err.msg))
 
-    if(!errors){
+    if(true){
         let user = new Users({name, email, password, imagePath: `https://robohash.org/${name}`});
         user.save()
         .then(() => {
